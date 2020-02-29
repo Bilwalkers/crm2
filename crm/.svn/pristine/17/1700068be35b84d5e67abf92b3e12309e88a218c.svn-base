@@ -1,0 +1,195 @@
+package com.zking.crm.base.entity;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+
+ /**
+ * Sal_chance 实体类
+ * 2019-07-31 20:43:23
+ */ 
+
+
+public class SalChance implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer chcId;//营销机会ID:主键 标识列
+	private String chcSource;//机会来源
+	private String chcCustName;//客户名称
+	private String chcTitle;//概要
+	private Integer chcRate;//成功机率
+	private String chcLinkman;//联系人
+	private String chcTel;//联系人电话
+	private String chcDesc;//机会描述
+	private String chcCreateId;//创建人ID: 引用权限用户表user(id)
+	private String chcCreateBy;//创建人名字
+	private Timestamp chcCreateDate;//创建日期时间
+	private Integer chcDueId;//指派给-某人ID
+	private String chcDueTo;//指派给-某人名字
+	private Timestamp chcDueDate;//指派日期时间
+	private String chcStatus;//状态: 1 未指派 2 已指派(或开发中) 3 开发成功 4 开发失败
+	private String tjian = "";//模糊查询条件
+	private String str = "";//输入的内容
+	
+	public String getTjian() {
+		return tjian;
+	}
+
+	public void setTjian(String tjian) {
+		this.tjian = tjian;
+	}
+
+	public String getStr() {
+		return str;
+	}
+
+	public void setStr(String str) {
+		this.str = str;
+	}
+
+	public	SalChance(){}
+
+	public	SalChance(Integer chcId,String chcSource,String chcCustName,String chcTitle,Integer chcRate,String chcLinkman,String chcTel,String chcDesc,String chcCreateId,String chcCreateBy,Timestamp chcCreateDate,Integer chcDueId,String chcDueTo,Timestamp chcDueDate,String chcStatus){
+		 this.chcId=chcId;
+		 this.chcSource=chcSource;
+		 this.chcCustName=chcCustName;
+		 this.chcTitle=chcTitle;
+		 this.chcRate=chcRate;
+		 this.chcLinkman=chcLinkman;
+		 this.chcTel=chcTel;
+		 this.chcDesc=chcDesc;
+		 this.chcCreateId=chcCreateId;
+		 this.chcCreateBy=chcCreateBy;
+		 this.chcCreateDate=chcCreateDate;
+		 this.chcDueId=chcDueId;
+		 this.chcDueTo=chcDueTo;
+		 this.chcDueDate=chcDueDate;
+		 this.chcStatus=chcStatus;
+	}
+
+	public void setChcId(Integer chcId){
+		this.chcId=chcId;
+	}
+
+	public Integer getChcId(){
+		return chcId;
+	}
+
+	public void setChcSource(String chcSource){
+		this.chcSource=chcSource;
+	}
+
+	public String getChcSource(){
+		return chcSource;
+	}
+
+	public void setChcCustName(String chcCustName){
+		this.chcCustName=chcCustName;
+	}
+
+	public String getChcCustName(){
+		return chcCustName;
+	}
+
+	public void setChcTitle(String chcTitle){
+		this.chcTitle=chcTitle;
+	}
+
+	public String getChcTitle(){
+		return chcTitle;
+	}
+
+	public void setChcRate(Integer chcRate){
+		this.chcRate=chcRate;
+	}
+
+	public Integer getChcRate(){
+		return chcRate;
+	}
+
+	public void setChcLinkman(String chcLinkman){
+		this.chcLinkman=chcLinkman;
+	}
+
+	public String getChcLinkman(){
+		return chcLinkman;
+	}
+
+	public void setChcTel(String chcTel){
+		this.chcTel=chcTel;
+	}
+
+	public String getChcTel(){
+		return chcTel;
+	}
+
+	public void setChcDesc(String chcDesc){
+		this.chcDesc=chcDesc;
+	}
+
+	public String getChcDesc(){
+		return chcDesc;
+	}
+
+	public void setChcCreateId(String chcCreateId){
+		this.chcCreateId=chcCreateId;
+	}
+
+	public String getChcCreateId(){
+		return chcCreateId;
+	}
+
+	public void setChcCreateBy(String chcCreateBy){
+		this.chcCreateBy=chcCreateBy;
+	}
+
+	public String getChcCreateBy(){
+		return chcCreateBy;
+	}
+
+	public void setChcCreateDate(Timestamp chcCreateDate){
+		this.chcCreateDate=chcCreateDate;
+	}
+
+	public Timestamp getChcCreateDate(){
+		return chcCreateDate;
+	}
+
+	public void setChcDueId(Integer chcDueId){
+		this.chcDueId=chcDueId;
+	}
+
+	public Integer getChcDueId(){
+		return chcDueId;
+	}
+
+	public void setChcDueTo(String chcDueTo){
+		this.chcDueTo=chcDueTo;
+	}
+
+	public String getChcDueTo(){
+		return chcDueTo;
+	}
+
+	public void setChcDueDate(Timestamp chcDueDate){
+		this.chcDueDate=chcDueDate;
+	}
+
+	public Timestamp getChcDueDate(){
+		return chcDueDate;
+	}
+
+	public void setChcStatus(String chcStatus){
+		this.chcStatus=chcStatus;
+	}
+
+	public String getChcStatus(){
+		return chcStatus;
+	}
+
+	 public String toString(){
+		 return "SalChance[chcId="	+chcId+",chcSource="	+chcSource+",chcCustName="	+chcCustName+",chcTitle="	+chcTitle+",chcRate="	+chcRate+",chcLinkman="	+chcLinkman+",chcTel="	+chcTel+",chcDesc="	+chcDesc+",chcCreateId="	+chcCreateId+",chcCreateBy="	+chcCreateBy+",chcCreateDate="	+chcCreateDate+",chcDueId="	+chcDueId+",chcDueTo="	+chcDueTo+",chcDueDate="	+chcDueDate+",chcStatus="	+chcStatus+"]";
+	}
+}
+

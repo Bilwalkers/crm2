@@ -1,0 +1,45 @@
+package com.zking.crm.dictionary.action;
+
+import java.util.List;
+
+import com.opensymphony.xwork2.ModelDriven;
+import com.zking.crm.base.action.BaseAction;
+import com.zking.crm.base.dao.BaseDao;
+import com.zking.crm.base.entity.BasDict;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.dictionary.biz.IBasDictBiz;
+
+public class BasDictAction extends BaseAction implements ModelDriven<BasDict> {
+
+	private BasDict bd=new BasDict();
+	private IBasDictBiz basDictBiz;
+	
+	public IBasDictBiz getBasDictBiz() {
+		return basDictBiz;
+	}
+
+	public void setBasDictBiz(IBasDictBiz basDictBiz) {
+		this.basDictBiz = basDictBiz;
+	}
+
+	@Override
+	public BasDict getModel() {
+		return bd;
+	}
+
+	public List<BasDict> queryBasDictDept(){
+		try {
+			PageBean pageBean=new PageBean();
+			pageBean.setRequest(request);
+			List<BasDict> list = basDictBiz.queryBasDictDept(bd, pageBean);
+			super.toJSONPager("ok", true, pageBean.getTotal(), list);
+		} catch (Exception e) {
+			super.toJSONPager("no", false, 0, null);
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	
+}

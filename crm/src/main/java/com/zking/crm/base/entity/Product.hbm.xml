@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.Product" table="product">
+		<id name="prodId" type="java.lang.Integer" column="prod_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="prodName" type="java.lang.String"  column="prod_name" />
+		<property name="prodType" type="java.lang.String"  column="prod_type" />
+		<property name="prodBatch" type="java.lang.String"  column="prod_batch" />
+		<property name="prodUnit" type="java.lang.String"  column="prod_unit" />
+		<property name="prodPrice" type="java.lang.Float"  column="prod_price" />
+		<property name="prodMemo" type="java.lang.String"  column="prod_memo" />
+	</class>
+</hibernate-mapping>

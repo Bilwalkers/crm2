@@ -1,0 +1,53 @@
+package com.zking.crm.custmer.biz.impl;
+
+import java.util.List;
+
+import com.zking.crm.base.biz.BaseBiz;
+import com.zking.crm.base.entity.Orders;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.custmer.biz.IOrdersBiz;
+import com.zking.crm.custmer.dao.IOrdersDao;
+
+public class OrdersBizImpl extends BaseBiz implements IOrdersBiz {
+
+	private IOrdersDao ordersDao;
+	
+	
+	public IOrdersDao getOrdersDao() throws Exception {
+		return ordersDao;
+	}
+
+	public void setOrdersDao(IOrdersDao ordersDao) throws Exception {
+		this.ordersDao = ordersDao;
+	}
+
+	@Override
+	public void addOrders(Orders orders) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delOrders(Orders orders) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void editOrders(Orders orders) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Orders byOrders(Orders orders) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Orders> queryOrdersPager(Orders orders, PageBean pageBean, String startTime, String endTime) throws Exception {
+		return ordersDao.queryOrdersPager(orders, pageBean,startTime,endTime);
+	}
+
+}

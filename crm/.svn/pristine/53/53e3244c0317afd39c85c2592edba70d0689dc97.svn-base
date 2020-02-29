@@ -1,0 +1,113 @@
+package com.zking.crm.base.entity;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+
+ /**
+ * Cst_linkman 实体类
+ * 2019-07-31 20:43:23
+ */ 
+
+
+public class CstLinkman implements Serializable {
+	private Integer lkmId;//联系人ID:主键 标识列
+	private String lkmCustNo;//客户编号:外键 cst_customer(cust_no)
+	private String lkmCustName;//客户名称
+	private String lkmName;//联系人名字
+	private String lkmSex;//性别:默认值'男'
+	private String lkmPostion;//职位
+	private String lkmTel;//办公电话
+	private String lkmMobile;//手机
+	private String lkmMemo;//备注
+
+	public	CstLinkman(){}	
+
+	public	CstLinkman(Integer lkmId,String lkmCustNo,String lkmCustName,String lkmName,String lkmSex,String lkmPostion,String lkmTel,String lkmMobile,String lkmMemo){
+		 this.lkmId=lkmId;
+		 this.lkmCustNo=lkmCustNo;
+		 this.lkmCustName=lkmCustName;
+		 this.lkmName=lkmName;
+		 this.lkmSex=lkmSex;
+		 this.lkmPostion=lkmPostion;
+		 this.lkmTel=lkmTel;
+		 this.lkmMobile=lkmMobile;
+		 this.lkmMemo=lkmMemo;
+	}
+
+	public void setLkmId(Integer lkmId){
+		this.lkmId=lkmId;
+	}
+
+	public Integer getLkmId(){
+		return lkmId;
+	}
+
+	public void setLkmCustNo(String lkmCustNo){
+		this.lkmCustNo=lkmCustNo;
+	}
+
+	public String getLkmCustNo(){
+		return lkmCustNo;
+	}
+
+	public void setLkmCustName(String lkmCustName){
+		this.lkmCustName=lkmCustName;
+	}
+
+	public String getLkmCustName(){
+		return lkmCustName;
+	}
+
+	public void setLkmName(String lkmName){
+		this.lkmName=lkmName;
+	}
+
+	public String getLkmName(){
+		return lkmName;
+	}
+
+	public void setLkmSex(String lkmSex){
+		this.lkmSex=lkmSex;
+	}
+
+	public String getLkmSex(){
+		return lkmSex;
+	}
+
+	public void setLkmPostion(String lkmPostion){
+		this.lkmPostion=lkmPostion;
+	}
+
+	public String getLkmPostion(){
+		return lkmPostion;
+	}
+
+	public void setLkmTel(String lkmTel){
+		this.lkmTel=lkmTel;
+	}
+
+	public String getLkmTel(){
+		return lkmTel;
+	}
+
+	public void setLkmMobile(String lkmMobile){
+		this.lkmMobile=lkmMobile;
+	}
+
+	public String getLkmMobile(){
+		return lkmMobile;
+	}
+
+	public void setLkmMemo(String lkmMemo){
+		this.lkmMemo=lkmMemo;
+	}
+
+	public String getLkmMemo(){
+		return lkmMemo;
+	}
+
+	 public String toString(){
+		 return "CstLinkman[lkmId="	+lkmId+",lkmCustNo="	+lkmCustNo+",lkmCustName="	+lkmCustName+",lkmName="	+lkmName+",lkmSex="	+lkmSex+",lkmPostion="	+lkmPostion+",lkmTel="	+lkmTel+",lkmMobile="	+lkmMobile+",lkmMemo="	+lkmMemo+"]";
+	}
+}
+

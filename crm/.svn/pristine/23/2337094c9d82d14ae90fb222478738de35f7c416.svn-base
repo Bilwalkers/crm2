@@ -1,0 +1,115 @@
+package com.zking.crm.service.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateCallback;
+
+import com.zking.crm.base.dao.BaseDao;
+import com.zking.crm.base.entity.CstService;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.base.util.StringUtils;
+import com.zking.crm.service.dao.ICstServiceDao;
+/**
+ * 	服务管理实现类
+ * @author Administrator
+ *
+ */
+public class CstServiceDaoImpl extends BaseDao implements ICstServiceDao {
+	/**
+	 * 	服务创建（新建服务）
+	 */
+	@Override
+	public void addCstService(CstService cstService) throws Exception {
+		this.getHibernateTemplate().save(cstService);
+	}
+	/**
+	 *	 服务分配（修改：分配人，状态）
+	 *	服务处理（修改：服务处理方法，处理人（当前登录的用户），
+	 * 	处理时间（系统时间），状态（已处理））;
+	 * 	服务反馈：（修改：处理结果，满意度，状态（满意度>3，修改已归档；满意度<3，不修改)）
+	 */
+	@Override
+	public void editCstService(CstService cstService) throws Exception {
+			super.getHibernateTemplate().update(cstService);
+	}
+	/**
+	 * 	删除
+	 */
+	@Override
+	public void delCstService(CstService cstService) throws Exception {
+			super.getHibernateTemplate().delete(cstService);
+	}
+	/**
+	 * 	查询单个
+	 */
+	@Override
+	public CstService byCstService(CstService cstService) throws Exception {
+		return super.getHibernateTemplate().get(CstService.class, cstService.getSvrId());
+	}
+	/**
+	 * 	分页查询
+	 */
+	@Override
+	public List<CstService> queryCstServicePager(CstService cstService, PageBean pageBean, String startTime, String endTime) throws Exception {
+		return this.getHibernateTemplate().execute(new HibernateCallback<List<CstService>>() {
+
+			@Override
+			public List<CstService> doInHibernate(Session session) throws HibernateException {
+				String hql = "select * from cst_service where 1=1";
+				if (null!=cstService.getSvrCustName()) {
+					hql += " and svr_cust_name like '%" + cstService.getSvrCustName() + "%'";
+				}
+				if(null!=cstService.getSvrTitle()) {
+					hql += " and svr_title like '%" + cstService.getSvrTitle() + "%'";
+				}
+				if(null!=cstService.getSvrType()) {
+					hql += " and svr_Type like '%"+cstService.getSvrType()+"%'";
+				}
+				if(null!=cstService.getSvrStatus()) {
+					hql += " and svr_status like '%"+cstService.getSvrStatus()+"%'";
+				}
+				if(null!=startTime && null!=endTime) {
+					hql += " and svr_create_date >= '"+startTime+"' AND svr_create_date <= '"+endTime+"'";
+				}
+				hql += " order by "+cstService.getSerTimeDate()+" desc";
+				
+				NativeQuery<CstService> query = session.createNativeQuery(hql,CstService.class);
+				if (pageBean.isPagination()) {
+					String hql2 = "select count(1) from cst_service where 1=1";
+					if (null!=cstService.getSvrCustName()) {
+						hql2 += " and svr_cust_name like '%" + cstService.getSvrCustName() + "%'";
+					}
+					if(null!=cstService.getSvrTitle()) {
+						hql2 += " and svr_title like '%" + cstService.getSvrTitle() + "%'";
+					}
+					if(null!=cstService.getSvrType()) {
+						hql2 += " and svr_Type like '%"+cstService.getSvrType()+"%'";
+					}
+					if(null!=cstService.getSvrStatus()) {
+						hql2 += " and svr_status like '%"+cstService.getSvrStatus()+"%'";
+					}
+					if(null!=startTime && null!=endTime) {
+						hql2 += " and svr_create_date >= '"+startTime+"' AND svr_create_date <= '"+endTime+"'";
+					}
+					NativeQuery q = session.createNativeQuery(hql2);
+					List list = q.list();
+					if (null != list) {
+						pageBean.setTotal(Integer.valueOf(list.get(0).toString()));
+					}
+					
+				}
+				// 设置参数
+				query.setFirstResult(pageBean.getStartIndex());
+				query.setMaxResults(pageBean.getRows());
+				List<CstService> list = query.list();
+				return list;
+
+			}
+		});
+	}
+
+}

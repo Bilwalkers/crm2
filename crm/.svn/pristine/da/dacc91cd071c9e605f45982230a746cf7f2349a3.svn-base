@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.CstLost" table="cst_lost">
+		<id name="lstId" type="java.lang.Integer" column="lst_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="lstCustNo" type="java.lang.String"  column="lst_cust_no" />
+		<property name="lstCustName" type="java.lang.String"  column="lst_cust_name" />
+		<property name="lstCustManagerId" type="java.lang.Integer"  column="lst_cust_manager_id" />
+		<property name="lstCustManagerName" type="java.lang.String"  column="lst_cust_manager_name" />
+		<property name="lstLastOrderDate" type="java.sql.Timestamp;"  column="lst_last_order_date" />
+		<property name="lstLostDate" type="java.sql.Timestamp;"  column="lst_lost_date" />
+		<property name="lstDelay" type="java.lang.String"  column="lst_delay" />
+		<property name="lstReason" type="java.lang.String"  column="lst_reason" />
+		<property name="lstStatus" type="java.lang.String"  column="lst_status" />
+	</class>
+</hibernate-mapping>

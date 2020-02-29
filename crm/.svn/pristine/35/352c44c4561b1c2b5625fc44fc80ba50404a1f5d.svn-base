@@ -1,0 +1,13 @@
+package com.zking.crm.permission.biz;
+
+import java.util.List;
+
+import com.zking.crm.base.entity.Module;
+
+public interface IModuleBiz {
+	/**
+	 * 遍历所有的根节点
+	 * @return
+	 */
+	public List<Module> queryRootNode();
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.CstLinkman" table="cst_linkman">
+		<id name="lkmId" type="java.lang.Integer" column="lkm_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="lkmCustNo" type="java.lang.String"  column="lkm_cust_no" />
+		<property name="lkmCustName" type="java.lang.String"  column="lkm_cust_name" />
+		<property name="lkmName" type="java.lang.String"  column="lkm_name" />
+		<property name="lkmSex" type="java.lang.String"  column="lkm_sex" />
+		<property name="lkmPostion" type="java.lang.String"  column="lkm_postion" />
+		<property name="lkmTel" type="java.lang.String"  column="lkm_tel" />
+		<property name="lkmMobile" type="java.lang.String"  column="lkm_mobile" />
+		<property name="lkmMemo" type="java.lang.String"  column="lkm_memo" />
+	</class>
+</hibernate-mapping>

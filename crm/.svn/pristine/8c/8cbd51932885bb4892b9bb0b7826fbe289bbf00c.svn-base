@@ -1,0 +1,53 @@
+package com.zking.crm.permission.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateCallback;
+
+import com.zking.crm.base.dao.BaseDao;
+import com.zking.crm.base.entity.Module;
+import com.zking.crm.permission.dao.IModuleDao;
+
+public class ModuleDaoImpl extends BaseDao implements IModuleDao {
+
+	@Override
+	public List<Module> queryRootNode() {
+		return super.getHibernateTemplate().execute(new HibernateCallback<List<Module>>() {
+
+			@Override
+			public List<Module> doInHibernate(Session session) throws HibernateException {
+				String hql = "from Module where pid=-1";
+				Query<Module> query = session.createQuery(hql, Module.class);
+				List<Module> list = query.list();
+				for (Module mod : list) {
+					queryModuleByPid(mod.getId(), mod);
+				}
+				return list;
+			}
+		});
+	}
+
+	@Override
+	public void queryModuleByPid(Integer pid, Module module) {
+		List<Module> lst = super.getHibernateTemplate().execute(new HibernateCallback<List<Module>>() {
+
+			@Override
+			public List<Module> doInHibernate(Session session) throws HibernateException {
+				String hql = "from Module where pid=:pid";
+				Query<Module> query = session.createQuery(hql, Module.class);
+				query.setParameter("pid", pid);
+				List<Module> list = query.list();
+				for (Module mod : list) {
+					// 暂时不用
+//					queryModuleByPid(mod.getId(), mod);
+				}
+				return list;
+			}
+		});
+		module.setChildren(lst);
+	}
+
+}

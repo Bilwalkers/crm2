@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.BasDict" table="bas_dict">
+		<id name="dictId" type="java.lang.Integer" column="dict_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="dictType" type="java.lang.String"  column="dict_type" />
+		<property name="dictItem" type="java.lang.String"  column="dict_item" />
+		<property name="dictValue" type="java.lang.String"  column="dict_value" />
+		<property name="dictIsEditable" type="java.lang.Integer"  column="dict_is_editable" />
+	</class>
+</hibernate-mapping>

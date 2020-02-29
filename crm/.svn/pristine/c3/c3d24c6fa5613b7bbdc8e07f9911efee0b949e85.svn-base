@@ -1,0 +1,18 @@
+package com.zking.crm.dictionary.dao;
+
+import java.util.List;
+
+import com.zking.crm.base.entity.BasDict;
+import com.zking.crm.base.util.PageBean;
+
+public interface IBasDicDao {
+
+	/**
+	 * 分页查询所属部门的字典数据
+	 * @param bd
+	 * @param pageBean
+	 * @return
+	 */
+	public List<BasDict> queryBasDictDept(BasDict bd,PageBean pageBean);
+	
+}

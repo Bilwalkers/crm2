@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.SalChance" table="sal_chance">
+		<id name="chcId" type="java.lang.Integer" column="chc_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="chcSource" type="java.lang.String"  column="chc_source" />
+		<property name="chcCustName" type="java.lang.String"  column="chc_cust_name" />
+		<property name="chcTitle" type="java.lang.String"  column="chc_title" />
+		<property name="chcRate" type="java.lang.Integer"  column="chc_rate" />
+		<property name="chcLinkman" type="java.lang.String"  column="chc_linkman" />
+		<property name="chcTel" type="java.lang.String"  column="chc_tel" />
+		<property name="chcDesc" type="java.lang.String"  column="chc_desc" />
+		<property name="chcCreateId" type="java.lang.String"  column="chc_create_id" />
+		<property name="chcCreateBy" type="java.lang.String"  column="chc_create_by" />
+		<property name="chcCreateDate" type="java.sql.Timestamp;"  column="chc_create_date" />
+		<property name="chcDueId" type="java.lang.Integer"  column="chc_due_id" />
+		<property name="chcDueTo" type="java.lang.String"  column="chc_due_to" />
+		<property name="chcDueDate" type="java.sql.Timestamp;"  column="chc_due_date" />
+		<property name="chcStatus" type="java.lang.String"  column="chc_status" />
+	</class>
+</hibernate-mapping>

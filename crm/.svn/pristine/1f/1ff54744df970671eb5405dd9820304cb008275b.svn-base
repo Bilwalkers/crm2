@@ -1,0 +1,86 @@
+package com.zking.crm.custmer.dao.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateCallback;
+
+import com.zking.crm.base.dao.BaseDao;
+import com.zking.crm.base.entity.Orders;
+import com.zking.crm.base.entity.OrdersLine;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.custmer.dao.IOrdersLineDao;
+
+public class OrdersLineDaoImpl extends BaseDao implements IOrdersLineDao {
+
+	@Override
+	public void addOrdersLine(OrdersLine ordersLine) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delOrdersLine(OrdersLine ordersLine) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void editOrdersLine(OrdersLine ordersLine) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public OrdersLine byOrdersLine(OrdersLine ordersLine) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*@Override
+	public List<OrdersLine> queryOrdersLinePager(OrdersLine ordersLine, PageBean pageBean) throws Exception {
+		return this.getHibernateTemplate().execute(new HibernateCallback<List<OrdersLine>>() {
+
+			@Override
+			public List<OrdersLine> doInHibernate(Session session) throws HibernateException {
+				String hql="from OrdersLine order by oddId desc";
+				Query<OrdersLine> query = session.createQuery(hql, OrdersLine.class);
+				
+				if(pageBean.isPagination()) {
+					String hql2="select count(odd_id) from OrdersLine";
+					Query query2 = session.createQuery(hql2);
+					List list = query2.list();
+					if(null!=list&0!=list.size()) {
+						pageBean.setTotal(Integer.valueOf(list.get(0).toString()));
+						
+					}
+				}
+				query.setFirstResult(pageBean.getStartIndex());
+				query.setMaxResults(pageBean.getRows());
+				return query.list();
+			}
+		});
+	}*/
+	@Override
+	public List<Map> queryOrdersLinePager(OrdersLine ordersLine,PageBean pageBean) {
+		return this.getHibernateTemplate().execute(new HibernateCallback<List<Map>>() {
+
+			@Override
+			public List<Map> doInHibernate(Session session) throws HibernateException {
+				String sql = "SELECT a.odd_count,a.odd_unit,a.odd_price,b.prod_name FROM orders_line a,product b WHERE a.odd_prod_id=b.prod_id";
+				Query query = session.createNativeQuery(sql);
+				query.setResultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP);
+				return query.list();
+			}
+			
+		});
+		
+	}
+	
+	
+	
+}

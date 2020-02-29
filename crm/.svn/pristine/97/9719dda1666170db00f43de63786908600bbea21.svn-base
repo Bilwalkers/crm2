@@ -1,0 +1,64 @@
+package com.zking.crm.permission.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateCallback;
+
+import com.zking.crm.base.dao.BaseDao;
+import com.zking.crm.base.entity.User;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.permission.dao.IUserDao;
+
+public class UserDaoImpl extends BaseDao implements IUserDao {
+
+	@Override
+	public User userLogin(User user) {
+		List<User> lst= super.getHibernateTemplate().execute(new HibernateCallback<List<User>>() {
+			public List<User> doInHibernate(Session session) throws HibernateException {
+				String hql="from User where username=:uname and password=:pwd";
+				Query<User> query = session.createQuery(hql,User.class);
+				query.setParameter("uname", user.getUsername());
+				query.setParameter("pwd", user.getPassword());
+				System.out.println(hql);
+				List<User> list = query.list();
+				return list;
+			}
+		});
+		if(null!=lst && 0!=lst.size())
+			return lst.get(0);
+		else
+			throw new RuntimeException();
+	}
+
+	@Override
+	public void addUser(User user) {
+		super.getHibernateTemplate().save(user);
+	}
+
+	@Override
+	public void delUser(User user) {
+		super.getHibernateTemplate().delete(user);
+	}
+
+	@Override
+	public void editUser(User user) {
+		super.getHibernateTemplate().update(user);
+
+	}
+
+	@Override
+	public List<User> queryUser(User user, PageBean pageBean) {
+		return super.getHibernateTemplate().execute(new HibernateCallback<List<User>>() {
+			@Override
+			public List<User> doInHibernate(Session session) throws HibernateException {
+				String hql="from User where 1=1";
+				Query<User> query = session.createQuery(hql,User.class);
+				return query.list();
+			}
+		});
+	}
+
+}

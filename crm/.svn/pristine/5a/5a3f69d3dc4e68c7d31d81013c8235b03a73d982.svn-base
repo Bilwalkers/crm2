@@ -1,0 +1,73 @@
+package com.zking.crm.base.entity;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+
+ /**
+ * Sal_plan 实体类
+ * 2019-07-31 20:43:23
+ */ 
+
+
+public class SalPlan implements Serializable {
+	private Integer plaId;//计划ID: 主键 标识列
+	private Integer plaChcId;//营销机会ID:外键 营销机会表的ID
+	private Timestamp plaDate;//计划执行日期
+	private String plaTodo;//计划内容
+	private String plaResult;//计划执行结果
+
+	public	SalPlan(){}	
+
+	public	SalPlan(Integer plaId,Integer plaChcId,Timestamp plaDate,String plaTodo,String plaResult){
+		 this.plaId=plaId;
+		 this.plaChcId=plaChcId;
+		 this.plaDate=plaDate;
+		 this.plaTodo=plaTodo;
+		 this.plaResult=plaResult;
+	}
+
+	public void setPlaId(Integer plaId){
+		this.plaId=plaId;
+	}
+
+	public Integer getPlaId(){
+		return plaId;
+	}
+
+	public void setPlaChcId(Integer plaChcId){
+		this.plaChcId=plaChcId;
+	}
+
+	public Integer getPlaChcId(){
+		return plaChcId;
+	}
+
+	public void setPlaDate(Timestamp plaDate){
+		this.plaDate=plaDate;
+	}
+
+	public Timestamp getPlaDate(){
+		return plaDate;
+	}
+
+	public void setPlaTodo(String plaTodo){
+		this.plaTodo=plaTodo;
+	}
+
+	public String getPlaTodo(){
+		return plaTodo;
+	}
+
+	public void setPlaResult(String plaResult){
+		this.plaResult=plaResult;
+	}
+
+	public String getPlaResult(){
+		return plaResult;
+	}
+
+	 public String toString(){
+		 return "SalPlan[plaId="	+plaId+",plaChcId="	+plaChcId+",plaDate="	+plaDate+",plaTodo="	+plaTodo+",plaResult="	+plaResult+"]";
+	}
+}
+

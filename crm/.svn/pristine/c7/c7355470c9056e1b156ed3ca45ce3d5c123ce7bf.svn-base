@@ -1,0 +1,89 @@
+package com.zking.crm.custmer.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateCallback;
+
+import com.zking.crm.base.dao.BaseDao;
+import com.zking.crm.base.entity.CstActivity;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.base.util.StringUtils;
+import com.zking.crm.custmer.dao.ICstActivityDao;
+
+public class CstActivityDaoImpl extends BaseDao implements ICstActivityDao {
+
+	@Override
+	public void addCstActivity(CstActivity cstActivity) throws Exception {
+		this.getHibernateTemplate().save(cstActivity);
+	}
+
+	@Override
+	public void delCstActivity(CstActivity cstActivity) throws Exception {
+			this.getHibernateTemplate().delete(cstActivity);
+	}
+
+	@Override
+	public void editCstActivity(CstActivity cstActivity) throws Exception {
+		this.getHibernateTemplate().update(cstActivity);
+	}
+
+	@Override
+	public CstActivity byCstActivity(CstActivity cstActivity) throws Exception {
+		CstActivity cat = this.getHibernateTemplate().get(CstActivity.class, cstActivity.getAtvId());
+		return cat;
+	}
+
+	@Override
+	public List<CstActivity> queryCstActivityPager(CstActivity cstActivity, PageBean pageBean,String startTime, String endTime) throws Exception {
+		return this.getHibernateTemplate().execute(new HibernateCallback<List<CstActivity>>() {
+
+			@Override
+			public List<CstActivity> doInHibernate(Session session) throws HibernateException {
+				String hql="from CstActivity where 1=1";
+				if(StringUtils.isNotBlank(cstActivity.getAtvCustNo())) {
+					hql+=" and atv_cust_no like '%"+cstActivity.getAtvCustNo()+"%'";
+				}
+				if(StringUtils.isNotBlank(cstActivity.getAtvCustName())) {
+					hql+=" and atv_cust_name like '%"+cstActivity.getAtvCustName()+"%'";
+				}
+				if(StringUtils.isNotBlank(cstActivity.getAtvPlace())) {
+					hql+=" and atv_place like '%"+cstActivity.getAtvPlace()+"%'";
+				}
+				if(null!=startTime && null!=endTime) {
+					hql += " and atv_date >= '"+startTime+"' AND atv_date <= '"+endTime+"'";
+				}
+				hql+=" order by atv_id desc";
+				Query<CstActivity> query = session.createQuery(hql,CstActivity.class);
+				
+				if(pageBean.isPagination()) {
+					String hql2="select count(1) from CstActivity where 1=1";
+					if(StringUtils.isNotBlank(cstActivity.getAtvCustNo())) {
+						hql+=" and atv_cust_no like '%"+cstActivity.getAtvCustNo()+"%'";
+					}
+					if(StringUtils.isNotBlank(cstActivity.getAtvCustName())) {
+						hql+=" and atv_cust_name like '%"+cstActivity.getAtvCustName()+"%'";
+					}
+					if(StringUtils.isNotBlank(cstActivity.getAtvPlace())) {
+						hql+=" and atv_place like '%"+cstActivity.getAtvPlace()+"%'";
+					}
+					if(null!=startTime && null!=endTime) {
+						hql += " and atv_date >= '"+startTime+"' AND atv_date <= '"+endTime+"'";
+					}
+					Query query2 = session.createQuery(hql2);
+					List list = query2.list();
+					if(null!=list&0!=list.size()) {
+						pageBean.setTotal(Integer.valueOf(list.get(0).toString()));
+						
+					}
+				}
+				query.setFirstResult(pageBean.getStartIndex());
+				query.setMaxResults(pageBean.getRows());
+				return query.list();
+			}
+		});
+	}
+
+}

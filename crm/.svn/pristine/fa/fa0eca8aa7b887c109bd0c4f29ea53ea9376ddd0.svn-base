@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.SalPlan" table="sal_plan">
+		<id name="plaId" type="java.lang.Integer" column="pla_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="plaChcId" type="java.lang.Integer"  column="pla_chc_id" />
+		<property name="plaDate" type="java.sql.Timestamp;"  column="pla_date" />
+		<property name="plaTodo" type="java.lang.String"  column="pla_todo" />
+		<property name="plaResult" type="java.lang.String"  column="pla_result" />
+	</class>
+</hibernate-mapping>

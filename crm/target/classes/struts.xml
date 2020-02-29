@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	
+<struts>
+
+	<!-- 统计报表模块 -->
+	<include file="reporting/struts-reporting.xml"></include>
+
+	<!-- 客户管理 -->
+	<include file="custmer/struts-CstActivity.xml"></include>
+	<include file="custmer/struts-CstCustomer.xml"></include>
+	<include file="custmer/struts-CstLinkman.xml"></include>
+	<include file="custmer/struts-CstLost.xml"></include>
+	<include file="custmer/struts-Orders.xml"></include>
+	<include file="custmer/struts-OrdersLine.xml"></include>
+
+	<!-- 基础数据 -->
+	<include file="dictionary/struts-storage.xml"></include>
+	<include file="dictionary/struts-product.xml"></include>
+	<include file="dictionary/struts-basdict.xml"></include>
+	
+	<!-- 服务模块 -->
+	<include file="service/struts-cstService.xml"></include>
+	
+	<!-- 营销管理模块 -->
+	<include file="market/struts-salchance.xml"></include>
+	<include file="market/struts-salplan.xml"></include>
+	
+	<!-- 客户管理 -->
+	<include file="custmer/struts-CstActivity.xml"></include>
+	<include file="custmer/struts-CstCustomer.xml"></include>
+	<include file="custmer/struts-CstLinkman.xml"></include>
+	<include file="custmer/struts-CstLost.xml"></include>
+	<include file="custmer/struts-Orders.xml"></include>
+	<include file="custmer/struts-OrdersLine.xml"></include>
+
+	<!-- 基础配置 -->
+	<include file="struts-base.xml"></include>
+	<!-- 功能模块 -->
+	<include file="permission/struts-module.xml"></include>
+	<!-- 用户 -->
+	<include file="permission/struts-user.xml"></include>
+	<!-- 角色 -->
+	<include file="permission/struts-role.xml"></include>
+	<!-- 模块树 -->
+	<include file="permission/struts-tree.xml"></include>
+	
+	<!-- 字典表 -->
+	<!-- <include file="dictionary/struts-basdict.xml"></include> -->
+</struts>

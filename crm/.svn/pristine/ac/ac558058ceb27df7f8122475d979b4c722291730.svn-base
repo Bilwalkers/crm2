@@ -1,0 +1,83 @@
+package com.zking.crm.base.entity;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+
+ /**
+ * Storage 基础数据模块:产品信息表
+ * 2019-07-28 19:12:15
+ */ 
+
+
+public class Storage implements Serializable {
+	private Integer stkId;//库存ID: 主键 标识列
+	private Integer stkProdId;//产品ID: 外键 引用product(prod_id)
+	private String stkWarehouse;//仓库
+	private String stkWare;//货位
+	private Integer stkCount;//件数
+	private String stkMemo;//备注
+
+	public	Storage(){}	
+
+	public	Storage(Integer stkId,Integer stkProdId,String stkWarehouse,String stkWare,Integer stkCount,String stkMemo){
+		 this.stkId=stkId;
+		 this.stkProdId=stkProdId;
+		 this.stkWarehouse=stkWarehouse;
+		 this.stkWare=stkWare;
+		 this.stkCount=stkCount;
+		 this.stkMemo=stkMemo;
+	}
+
+	public void setStkId(Integer stkId){
+		this.stkId=stkId;
+	}
+
+	public Integer getStkId(){
+		return stkId;
+	}
+
+	public void setStkProdId(Integer stkProdId){
+		this.stkProdId=stkProdId;
+	}
+
+	public Integer getStkProdId(){
+		return stkProdId;
+	}
+
+	public void setStkWarehouse(String stkWarehouse){
+		this.stkWarehouse=stkWarehouse;
+	}
+
+	public String getStkWarehouse(){
+		return stkWarehouse;
+	}
+
+	public void setStkWare(String stkWare){
+		this.stkWare=stkWare;
+	}
+
+	public String getStkWare(){
+		return stkWare;
+	}
+
+	public void setStkCount(Integer stkCount){
+		this.stkCount=stkCount;
+	}
+
+	public Integer getStkCount(){
+		return stkCount;
+	}
+
+	public void setStkMemo(String stkMemo){
+		this.stkMemo=stkMemo;
+	}
+
+	public String getStkMemo(){
+		return stkMemo;
+	}
+
+	 public String toString(){
+		 return "Storage[stkId="	+stkId+",stkProdId="	+stkProdId+",stkWarehouse="	+stkWarehouse+",stkWare="	+stkWare+",stkCount="	+stkCount+",stkMemo="	+stkMemo+"]";
+	}
+}
+

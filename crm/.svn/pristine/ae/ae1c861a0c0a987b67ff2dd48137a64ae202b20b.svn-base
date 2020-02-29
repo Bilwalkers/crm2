@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.CstService" table="cst_service">
+		<id name="svrId" type="java.lang.Integer" column="svr_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="svrType" type="java.lang.String"  column="svr_type" />
+		<property name="svrTitle" type="java.lang.String"  column="svr_title" />
+		<property name="svrCustNo" type="java.lang.String"  column="svr_cust_no" />
+		<property name="svrCustName" type="java.lang.String"  column="svr_cust_name" />
+		<property name="svrStatus" type="java.lang.String"  column="svr_status" />
+		<property name="svrRequest" type="java.lang.String"  column="svr_request" />
+		<property name="svrCreateId" type="java.lang.Integer"  column="svr_create_id" />
+		<property name="svrCreateBy" type="java.lang.String"  column="svr_create_by" />
+		<property name="svrCreateDate" type="java.sql.Timestamp;"  column="svr_create_date" />
+		<property name="svrDueId" type="java.lang.String"  column="svr_due_id" />
+		<property name="svrDueTo" type="java.lang.String"  column="svr_due_to" />
+		<property name="svrDueDate" type="java.sql.Timestamp;"  column="svr_due_date" />
+		<property name="svrDeal" type="java.lang.String"  column="svr_deal" />
+		<property name="svrDealId" type="java.lang.Integer"  column="svr_deal_id" />
+		<property name="svrDealBy" type="java.lang.String"  column="svr_deal_by" />
+		<property name="svrDealDate" type="java.sql.Timestamp;"  column="svr_deal_date" />
+		<property name="svrResult" type="java.lang.String"  column="svr_result" />
+		<property name="svrSatisfy" type="java.lang.Integer"  column="svr_satisfy" />
+	</class>
+</hibernate-mapping>

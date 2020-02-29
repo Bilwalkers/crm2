@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.OrdersLine" table="orders_line">
+		<id name="oddId" type="java.lang.Integer" column="odd_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="oddOrderId" type="java.lang.Integer"  column="odd_order_id" />
+		<property name="oddProdId" type="java.lang.Integer"  column="odd_prod_id" />
+		<property name="oddCount" type="java.lang.Integer"  column="odd_count" />
+		<property name="oddUnit" type="java.lang.String"  column="odd_unit" />
+		<property name="oddPrice" type="java.lang.Float"  column="odd_price" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,59 @@
+package com.zking.crm.permission.biz.impl;
+
+import java.util.List;
+
+import com.zking.crm.base.biz.BaseBiz;
+import com.zking.crm.base.entity.User;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.permission.biz.IUserBiz;
+import com.zking.crm.permission.dao.IUserDao;
+
+public class UserBizImpl extends BaseBiz implements IUserBiz {
+
+	private IUserDao userDao;
+	
+	public IUserDao getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(IUserDao userDao) {
+		this.userDao = userDao;
+	}
+
+	@Override
+	public User userLogin(User user) {
+		return userDao.userLogin(user);
+	}
+
+	@Override
+	public void addUser(User user) {
+		userDao.addUser(user);
+	}
+
+	@Override
+	public void delUser(User user) {
+		userDao.delUser(user);
+	}
+
+	@Override
+	public void editUser(User user) {
+		userDao.editUser(user);
+	}
+
+	@Override
+	public List<User> queryUserPager(User user, PageBean pageBean) {
+		return userDao.queryUserPager(user, pageBean);
+	}
+
+	@Override
+	public User getUser(User user) {
+		return userDao.getUser(user);
+	}
+	
+	@Override
+	public List<User> roleUser(User user) {
+		return userDao.roleUser(user);
+	}
+
+
+}

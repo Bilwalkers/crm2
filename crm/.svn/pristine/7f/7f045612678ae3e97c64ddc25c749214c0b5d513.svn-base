@@ -1,0 +1,50 @@
+package com.zking.crm.market.biz;
+
+import java.util.List;
+
+import com.zking.crm.base.entity.SalPlan;
+import com.zking.crm.base.entity.SalPlanItem;
+import com.zking.crm.base.util.PageBean;
+
+public interface ISalplanBiz {
+	/**
+	 * 添加营销计划项
+	 * @param salPlanItem
+	 */
+	public void addSalplan(SalPlanItem salPlanItem);
+	/**
+	 * 修改营销计划项
+	 * @param salPlan
+	 */
+	public void editSalplan(SalPlan salPlan);
+	/**
+	 * 开发成功方法
+	 * @param salPlan
+	 */
+	public void successSalplan(SalPlan salPlan);
+	/**
+	 * 删除开发计划
+	 * @param salPlan
+	 */
+	public void delSalplan(SalPlan salPlan);
+	/**
+	 * 查询所有单个计划对应的所有计划项
+	 * @param salPlanItem
+	 * @return
+	 */
+	public List<SalPlanItem> querySalplanItem(SalPlanItem salPlanItem);
+	/**
+	 * 分页查询所有计划
+	 * @param salPlan
+	 * @return
+	 */
+	public List<SalPlan> querySalplanPager(SalPlan salPlan,PageBean pageBean);
+	/**
+	 * 查询单个
+	 * @param salPlan
+	 * @return
+	 */
+	public SalPlan get(SalPlan salPlan);
+		
+	
+}

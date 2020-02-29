@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- 注册dao -->
+	<bean id="isalplanDao"
+		class="com.zking.crm.market.dao.imp.SalplanDaoImpl" parent="baseDao">
+	</bean>
+	<!-- 注册Biz -->
+	<bean id="isalplanBiz"
+		class="com.zking.crm.market.biz.imp.ISalplanBizImpl" parent="baseBiz">
+		<property ref="isalplanDao" name="isalplanDao" />
+	</bean>
+	<!-- 注册action -->
+	<bean id="salplanAction"
+		class="com.zking.crm.market.action.SalplanAction" scope="prototype"
+		parent="baseAction">
+		<property ref="isalplanBiz" name="isalplanBiz"></property>
+	</bean>
+	<bean id="salplanitemAction"
+		class="com.zking.crm.market.action.SalplanitemAction" scope="prototype"
+		parent="baseAction">
+		<property ref="isalplanBiz" name="isalplanBiz"></property>
+	</bean>
+</beans>

@@ -1,0 +1,8 @@
+package com.zking.crm.base.dao;
+
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+
+public abstract class BaseDao extends HibernateDaoSupport {
+
+	
+}

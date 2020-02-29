@@ -1,0 +1,50 @@
+package com.zking.crm.dictionary.biz.imp;
+
+import java.util.List;
+
+import com.zking.crm.base.biz.BaseBiz;
+import com.zking.crm.base.entity.BasDict;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.dictionary.biz.IBasdictBiz;
+import com.zking.crm.dictionary.dao.IBasdictDao;
+import com.zking.crm.dictionary.dao.imp.BasdictDaoImpl;
+
+public class BasdictBizImpl extends BaseBiz implements IBasdictBiz {
+	private IBasdictDao ibasdictDao = new BasdictDaoImpl();
+	
+
+
+	public IBasdictDao getIbasdictDao() {
+		return ibasdictDao;
+	}
+
+	public void setIbasdictDao(IBasdictDao ibasdictDao) {
+		this.ibasdictDao = ibasdictDao;
+	}
+
+	@Override
+	public void addBasdict(BasDict basDict) {
+		ibasdictDao.addBasdict(basDict);
+	}
+
+	@Override
+	public void delBasdict(BasDict basDict) {
+		ibasdictDao.delBasdict(basDict);
+	}
+
+	@Override
+	public void editBasdict(BasDict basDict) {
+		ibasdictDao.editBasdict(basDict);
+	}
+
+	@Override
+	public List<BasDict> queryBasdictPager(BasDict basDict, PageBean pageBean) {
+		return ibasdictDao.queryBasdictPager(basDict, pageBean);
+	}
+
+	@Override
+	public BasDict get(BasDict basDict) {
+		return ibasdictDao.get(basDict);
+	}
+
+}

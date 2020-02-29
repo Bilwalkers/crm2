@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.Orders" table="orders">
+		<id name="odrId" type="java.lang.Integer" column="odr_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="odrCustomer" type="java.lang.String"  column="odr_customer" />
+		<property name="odrDate" type="java.sql.Timestamp"  column="odr_date" />
+		<property name="odrAddr" type="java.lang.String"  column="odr_addr" />
+		<property name="odrStatus" type="java.lang.String"  column="odr_status" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,93 @@
+package com.zking.crm.base.entity;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+
+ /**
+ * Product 实体类
+ * 2019-07-31 20:43:23
+ */ 
+
+
+public class Product implements Serializable {
+	private Integer prodId;//产品ID: 主键 标识列
+	private String prodName;//名称
+	private String prodType;//型号
+	private String prodBatch;//等级/批次
+	private String prodUnit;//单位
+	private Float prodPrice;//单价
+	private String prodMemo;//备注
+
+	public	Product(){}	
+
+	public	Product(Integer prodId,String prodName,String prodType,String prodBatch,String prodUnit,Float prodPrice,String prodMemo){
+		 this.prodId=prodId;
+		 this.prodName=prodName;
+		 this.prodType=prodType;
+		 this.prodBatch=prodBatch;
+		 this.prodUnit=prodUnit;
+		 this.prodPrice=prodPrice;
+		 this.prodMemo=prodMemo;
+	}
+
+	public void setProdId(Integer prodId){
+		this.prodId=prodId;
+	}
+
+	public Integer getProdId(){
+		return prodId;
+	}
+
+	public void setProdName(String prodName){
+		this.prodName=prodName;
+	}
+
+	public String getProdName(){
+		return prodName;
+	}
+
+	public void setProdType(String prodType){
+		this.prodType=prodType;
+	}
+
+	public String getProdType(){
+		return prodType;
+	}
+
+	public void setProdBatch(String prodBatch){
+		this.prodBatch=prodBatch;
+	}
+
+	public String getProdBatch(){
+		return prodBatch;
+	}
+
+	public void setProdUnit(String prodUnit){
+		this.prodUnit=prodUnit;
+	}
+
+	public String getProdUnit(){
+		return prodUnit;
+	}
+
+	public void setProdPrice(Float prodPrice){
+		this.prodPrice=prodPrice;
+	}
+
+	public Float getProdPrice(){
+		return prodPrice;
+	}
+
+	public void setProdMemo(String prodMemo){
+		this.prodMemo=prodMemo;
+	}
+
+	public String getProdMemo(){
+		return prodMemo;
+	}
+
+	 public String toString(){
+		 return "Product[prodId="	+prodId+",prodName="	+prodName+",prodType="	+prodType+",prodBatch="	+prodBatch+",prodUnit="	+prodUnit+",prodPrice="	+prodPrice+",prodMemo="	+prodMemo+"]";
+	}
+}
+

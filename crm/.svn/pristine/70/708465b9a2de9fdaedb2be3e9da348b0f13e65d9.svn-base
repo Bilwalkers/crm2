@@ -1,0 +1,48 @@
+package com.zking.crm.permission.action;
+
+import java.util.List;
+
+import com.opensymphony.xwork2.ModelDriven;
+import com.zking.crm.base.action.BaseAction;
+import com.zking.crm.base.entity.Module;
+import com.zking.crm.permission.biz.IModuleBiz;
+
+public class ModuleAction extends BaseAction implements ModelDriven<Module>{
+
+	private Module module=new Module();
+	private IModuleBiz moduleBiz;
+	
+	public IModuleBiz getModuleBiz() {
+		return moduleBiz;
+	}
+
+
+	public void setModuleBiz(IModuleBiz moduleBiz) {
+		this.moduleBiz = moduleBiz;
+	}
+
+
+	@Override
+	public Module getModel() {
+		return module;
+	}
+	
+	/**
+	 * 查询所有的根节点
+	 * @return
+	 */
+	public String queryRootNode() {
+		try {
+			List<Module> nodes = moduleBiz.queryRootNode();
+			super.toJSONObject(true, nodes);
+		} catch (Exception e) {
+			e.printStackTrace();
+			super.toJSONObject(false, null);
+		}
+		return null;
+	}
+	
+	
+	
+
+}

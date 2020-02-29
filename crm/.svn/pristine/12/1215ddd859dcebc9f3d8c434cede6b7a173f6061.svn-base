@@ -1,0 +1,29 @@
+package com.zking.crm.dictionary.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateCallback;
+
+import com.zking.crm.base.dao.BaseDao;
+import com.zking.crm.base.entity.BasDict;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.dictionary.dao.IBasDicDao;
+
+public class BasDictDaoImpl extends BaseDao implements IBasDicDao {
+	
+	@Override
+	 public List<BasDict> queryBasDictDept(BasDict bd, PageBean pageBean) {
+		return super.getHibernateTemplate().execute(new HibernateCallback<List<BasDict>>() {
+			public List<BasDict> doInHibernate(Session session) throws HibernateException {
+				String sql="select * from bas_dict where dict_type = '所属部门'  ";
+				NativeQuery<BasDict> query = session.createNativeQuery(sql,BasDict.class);
+				return query.list();
+			}
+		});
+	}
+
+}

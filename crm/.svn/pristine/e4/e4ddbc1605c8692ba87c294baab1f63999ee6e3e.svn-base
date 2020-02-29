@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- 统计报表模块 -->
+	<import resource="reporting/applicationContext-reporting.xml"/>
+	
+	
+	<!-- 客户管理 -->
+	<import resource="custmer/applicationContext-CstActivity.xml"/>
+	<import resource="custmer/applicationContext-CstCustomer.xml"/>
+	<import resource="custmer/applicationContext-CstLinkman.xml"/>
+	<import resource="custmer/applicationContext-CstLost.xml"/>
+	<import resource="custmer/applicationContext-Orders.xml"/>
+	<import resource="custmer/applicationContext-OrdersLine.xml"/>
+	
+	<!-- 基础数据 -->
+	<import resource="dictionary/applicationContext-storage.xml"/>
+	<import resource="dictionary/applicationContext-product.xml"/>
+	<import resource="dictionary/applicationContext-basdict.xml"/>
+	
+	<!-- 服务管理 -->
+	<import resource="service/applicationContext-cstService.xml"/>
+	
+	<!-- 营销管理 -->
+	<import resource="market/applicationContext-salchance.xml"/>
+	<import resource="market/applicationContext-salplan.xml"/>
+	
+	<!-- 客户管理 -->
+	<import resource="custmer/applicationContext-CstActivity.xml"/>
+	<import resource="custmer/applicationContext-CstCustomer.xml"/>
+	<import resource="custmer/applicationContext-CstLinkman.xml"/>
+	<import resource="custmer/applicationContext-CstLost.xml"/>
+	<import resource="custmer/applicationContext-Orders.xml"/>
+	<import resource="custmer/applicationContext-OrdersLine.xml"/>
+	
+	<!-- 权限 -->
+	<import resource="applicationContext-hibernate.xml"/>
+	<import resource="permission/applicationContext-module.xml"/>
+	<import resource="permission/applicationContext-user.xml"/>
+	<import resource="permission/applicationContext-role.xml"/>
+	<import resource="permission/applicationContext-tree.xml"/>
+	
+	<!-- 字典数据 -->
+	<import resource="dictionary/applicationContext-basdict.xml"/>
+</beans>

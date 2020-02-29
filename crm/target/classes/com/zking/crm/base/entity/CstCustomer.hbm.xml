@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.CstCustomer" table="cst_customer">
+		<id name="custNo" type="java.lang.String" column="cust_no">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="custName" type="java.lang.String"  column="cust_name" />
+		<property name="custRegion" type="java.lang.String"  column="cust_region" />
+		<property name="custManagerId" type="java.lang.String"  column="cust_manager_id" />
+		<property name="custManagerName" type="java.lang.String"  column="cust_manager_name" />
+		<property name="custLevel" type="java.lang.Integer"  column="cust_level" />
+		<property name="custLevelLabel" type="java.lang.String"  column="cust_level_label" />
+		<property name="custSatisfy" type="java.lang.Integer"  column="cust_satisfy" />
+		<property name="custCredit" type="java.lang.Integer"  column="cust_credit" />
+		<property name="custAddr" type="java.lang.String"  column="cust_addr" />
+		<property name="custZip" type="java.lang.String"  column="cust_zip" />
+		<property name="custTel" type="java.lang.String"  column="cust_tel" />
+		<property name="custFax" type="java.lang.String"  column="cust_fax" />
+		<property name="custWebsite" type="java.lang.String"  column="cust_website" />
+		<property name="custLicenceNo" type="java.lang.String"  column="cust_licence_no" />
+		<property name="custChieftain" type="java.lang.String"  column="cust_chieftain" />
+		<property name="custBankroll" type="java.lang.Integer"  column="cust_bankroll" />
+		<property name="custTurnover" type="java.lang.Integer"  column="cust_turnover" />
+		<property name="custBank" type="java.lang.String"  column="cust_bank" />
+		<property name="custBankAccount" type="java.lang.String"  column="cust_bank_account" />
+		<property name="custLocalTaxNo" type="java.lang.String"  column="cust_local_tax_no" />
+		<property name="custNationalTaxNo" type="java.lang.String"  column="cust_national_tax_no" />
+		<property name="custStatus" type="java.lang.String"  column="cust_status" />
+	</class>
+</hibernate-mapping>

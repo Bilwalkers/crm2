@@ -1,0 +1,36 @@
+package com.zking.crm.permission.dao.impl;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.zking.crm.base.entity.Module;
+import com.zking.crm.permission.biz.IModuleBiz;
+
+public class ModuleDaoImplTest {
+
+	private Module module;
+	private IModuleBiz moduleBiz;
+	
+	
+	@Before
+	public void setUp() throws Exception {
+		module=new Module();
+		ApplicationContext ac=new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+		moduleBiz=ac.getBean("moduleBiz",IModuleBiz.class);
+	}
+
+	@Test
+	public void testQueryRootNode() {
+		List<Module> nodes = moduleBiz.queryRootNode();
+		for (Module mod : nodes) {
+			System.out.println(mod);
+		}
+	}
+
+}

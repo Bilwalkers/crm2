@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.Storage" table="storage">
+		<id name="stkId" type="java.lang.Integer" column="stk_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="stkProdId" type="java.lang.Integer"  column="stk_prod_id" />
+		<property name="stkWarehouse" type="java.lang.String"  column="stk_warehouse" />
+		<property name="stkWare" type="java.lang.String"  column="stk_ware" />
+		<property name="stkCount" type="java.lang.Integer"  column="stk_count" />
+		<property name="stkMemo" type="java.lang.String"  column="stk_memo" />
+	</class>
+</hibernate-mapping>

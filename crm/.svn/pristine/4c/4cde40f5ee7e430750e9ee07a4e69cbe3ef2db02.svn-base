@@ -1,0 +1,66 @@
+package com.zking.crm.permission.biz.impl;
+
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.zking.crm.base.entity.User;
+import com.zking.crm.base.util.PageBean;
+import com.zking.crm.permission.biz.IUserBiz;
+
+public class UserBizImplTest {
+
+	private User user=null;
+	private IUserBiz userBiz;
+	
+	@Before
+	public void setUp() throws Exception {
+		user=new User();
+		ApplicationContext ac=new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+		userBiz = ac.getBean("userBiz",IUserBiz.class);
+	}
+	
+	@Test
+	public void testUserLogin() {
+		user.setUsername("admin");
+		user.setPassword("123");
+		User u = userBiz.userLogin(user);
+		System.out.println(u);
+	}
+
+	@Test
+	public void testAddUser() {
+		user.setUsername("mz");
+		user.setPassword("12");
+		user.setDeptment("市场部");
+		userBiz.addUser(user);
+	}
+
+	@Test
+	public void testDelUser() {
+		user.setId("4028ab236c3b8984016c3b8985e80000");
+		userBiz.delUser(user);
+	}
+
+	@Test
+	public void testEditUser() {
+		user.setId("4028ab236c3b8bc4016c3b8bc6af0000");
+		user.setUsername("ajj");
+		user.setPassword("52013990");
+		user.setDeptment("财务部");
+		userBiz.editUser(user);
+	}
+
+	@Test
+	public void testQueryUser() {
+		PageBean pageBean=new PageBean();
+		List<User> list = userBiz.queryUser(user, pageBean);
+		for (User u : list) {
+			System.out.println(u);
+		}
+	}
+
+}

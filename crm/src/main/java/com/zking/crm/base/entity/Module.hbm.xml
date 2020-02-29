@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zking.crm.base.entity.Module" table="t_module">
+		<id type="java.lang.Integer" column="id" name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="pid" type="java.lang.Integer"  column="pid" />
+		<property name="text" type="java.lang.String"  column="text" />
+		<property name="icon" type="java.lang.String"  column="icon" />
+		<property name="url" type="java.lang.String"  column="url" />
+		<property name="sort" type="java.lang.Integer"  column="sort" />
+	</class>
+</hibernate-mapping>
