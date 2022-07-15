@@ -40,7 +40,7 @@
 		<!-- 8.jackson -->
 		<jackson-annotations.version>2.2.3</jackson-annotations.version>
 		<jackson-core.version>2.2.3</jackson-core.version>
-		<jackson-databind.version>2.2.3</jackson-databind.version>
+		<jackson-databind.version>2.12.6.1</jackson-databind.version>
 		
 		<!-- 9.jwt -->
 		<jjwt.version>0.9.1</jjwt.version>
